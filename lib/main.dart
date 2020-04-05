@@ -25,8 +25,10 @@ class _MyappState extends State<Myapp> {
   Brasil _brasil = Brasil.vazio();
   InternalStorage storage = InternalStorage();
 
-  void load(){
+  void load ()async{
+    storage.updateData();
     setState(() {
+      print("loda");
       storage.readData().then((data){
         var test = jsonDecode(data);
         _brasil = Brasil(jsonDecode(test));
@@ -55,7 +57,6 @@ class _MyappState extends State<Myapp> {
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: (){
-                storage.updateData;
                 load();
             }
           ),

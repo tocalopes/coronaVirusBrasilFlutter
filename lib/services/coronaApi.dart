@@ -10,7 +10,7 @@ class CoronaApi {
           "x-rapidapi-host": "covid-19-coronavirus-statistics.p.rapidapi.com",
           "x-rapidapi-key": "1fce8bb448msh9f8ab63696ca9f0p1ccd4ajsn69f8f8834355"
         });
-
+    print(response.body);
     return response.body;
 
   }

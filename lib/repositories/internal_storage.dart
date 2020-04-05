@@ -12,10 +12,11 @@ class InternalStorage {
     return File("${directory.path}/data.json");
   }
 
-  Future<File> updateData(String response) async {
-    String data = await jsonEncode(api.updateData());
+  void updateData() async {
+    String data = jsonEncode(await api.updateData());
+    print(data);
     final file = await _getFile();
-    return file.writeAsString(data);
+    file.writeAsString(data);
   }
 
   Future<String> readData() async {
